@@ -1,0 +1,38 @@
+<ion-header class="ion-no-border">
+    
+  <ion-toolbar>
+    <ion-buttons slot="start">
+    <ion-back-button 
+        defaultHref="/"
+        text=""
+        color="success"
+        mode="ios"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="titulo">Energy news</ion-title>   
+  </ion-toolbar>
+
+</ion-header>
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12"
+                *ngFor ="let noticia of noticias; let i= index">
+                <ion-card  color="success">
+                  <ion-card-header>   
+                    <ion-card-subtitle>    
+                        <span class="text">{{i + 1 }}</span>    
+                        <span class="titulo-noticia">{{noticia.source.name}} </span>    
+                    </ion-card-subtitle>
+                    <ion-card-title class="subtitulo-noticia">{{noticia.title}}</ion-card-title>
+                  </ion-card-header>                     
+                  <ion-img  *ngIf="noticia.urlToImage"
+                  [src]="noticia.urlToImage"></ion-img>              
+                  <ion-card-content>
+                    <p class="noticia-description">
+                      {{noticia.description}}
+                    </p>
+                  </ion-card-content> 
+                </ion-card>
+              </ion-col>  
+            </ion-row>
+          </ion-grid>

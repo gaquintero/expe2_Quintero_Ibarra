@@ -1,0 +1,28 @@
+<ion-app>
+  <ion-menu side="start" menuId="first" contentId="main">
+    <ion-header>
+      <ion-toolbar color="success">
+        <ion-title class="tituloMenu">Menú</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <!--LLAMAR ARREGLO MENU-->
+    <ion-content>
+      <ion-list>  
+        <ion-menu-toggle *ngFor="let c of componentes">
+        <ion-item [routerLink]="c.redirecTo"
+                detail=true
+                style="font-family: monospace;">
+        <ion-icon [name]="c.icon" slot="start" color="success" style="font-family: monospace;"></ion-icon>
+        {{ c.name }}
+      </ion-item>
+    </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+  </ion-menu>
+
+
+
+
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>

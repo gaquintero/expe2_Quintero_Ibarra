@@ -1,0 +1,40 @@
+<ion-header >
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()" color="success">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end" class="ion-padding">
+      <ion-avatar >
+         <ion-img src="/assets/IconoPrincipal.png"></ion-img>
+      </ion-avatar>
+    </ion-buttons>
+    <ion-title class="titulo" >CLEAN-ENERGY</ion-title>
+  </ion-toolbar>
+
+
+
+</ion-header>
+
+<ion-content>
+  <ion-img src="/assets/inicio.png" class="imagenPrincipal"></ion-img>
+  <ion-list >
+    <ion-item *ngFor="let c of componentes"
+              [routerLink]="c.redirecTo"
+              detail="true"
+               class="items">
+       <ion-icon [name]="c.icon" slot="start" color="success" class="iconos"></ion-icon>
+       <a class="direccionesInicio">{{c.name}}</a>
+    </ion-item>
+    
+  </ion-list>
+
+  
+
+
+ 
+
+
+</ion-content>

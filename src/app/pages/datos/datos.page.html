@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="" color="success" mode="ios"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="titulo">
+      Datos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <i-card>
+    <ion-item>
+      <ion-label position="floating" style="font-weight: bold; color: aliceblue;">Nombre </ion-label>
+      <ion-input type="text" [(ngModel)]="newDato.nom" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating" style="font-weight: bold; color: aliceblue;">Apellido</ion-label>
+      <ion-input type="text" [(ngModel)]="newDato.apellido" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating" style="font-weight: bold; color: aliceblue;">Edad</ion-label>
+      <ion-input type="number" [(ngModel)]="newDato.edad" required></ion-input>
+    </ion-item>
+
+  </i-card>
+
+  <br><br><br><br>
+
+
+  <ion-button (click)="addDatos()" expand="full" type="submit" expand="full" color="dark" shape="round" fill="outline"
+    style="font-weight: bolder; font-size: 20px; ">
+    Agregar datos
+  </ion-button>
+
+
+
+  <ion-list #myList>
+    <ion-list-header>
+      <ion-label class="MisDatos">Mis Datos</ion-label>
+    </ion-list-header>
+
+
+
+    <ion-list>
+      <ion-item-sliding *ngFor="let dato of datos">
+
+        <ion-item>
+          <ion-label text-wrap>
+            <h3 style="font-size: 18px; font-family: monospace;">{{dato.nom}}</h3>
+            <ion-text color="success">
+              <p style="font-family: monospace;">{{dato.apellido}}</p>
+            </ion-text>
+            <p style="font-family: 'Courier New', Courier, monospace;">{{dato.modified | date: 'short'}}</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item-options side="end">
+          <ion-item-option color="success" (click)="updateDatos(dato)"
+            style="font-family: 'Courier New', Courier, monospace;">Actualizar</ion-item-option>
+          <ion-item-option color="danger" (click)="deleteDatos(dato)">Eliminar</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-list>
+</ion-content>
